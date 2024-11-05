@@ -46,3 +46,13 @@ eval "$(zoxide init zsh)"
 
 ## SET PATH
 PATH=$PATH:/home/jonathan/.cargo/bin
+
+## LSR COLORS!!!!!!!!!!
+export LSR_COLORS="RESET=\x2b[0m:\
+DIR=\x1b[34m :\
+SYMLINK=\x1b[36m :\
+FILE=\x1b[38m :\
+HIDDEN=\x1b[90m :\
+EXEC=\x1b[32m :\
+ARCHIVE=\x1b[31m :\
+MEDIA=\x1b[33m"
