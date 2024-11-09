@@ -55,4 +55,5 @@ HIDDEN=\x1b[90m :\
 EXEC=\x1b[32;4m :\
 ARCHIVE=\x1b[31m :\
 MEDIA=\x1b[33m :\
-DOCUMENT=\x1b[35;3m "
+DOCUMENT=\x1b[35;3m :"
+
