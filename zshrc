@@ -1,5 +1,5 @@
 SCRIPT_DIR=$(dirname "$(realpath $0)")
-echo "$SCRIPT_DIR. dis is being used"
+echo "$SCRIPT_DIR is being used"
 
 ## History file
 export HISTFILE=$HOME/.zsh_history
@@ -47,13 +47,4 @@ eval "$(zoxide init zsh)"
 ## SET PATH
 PATH=$PATH:/home/jonathan/.cargo/bin
 
-## LSR COLORS!!!!!!!!!!
-export LSR_COLORS="DIR=\x1b[34m :\
-SYMLINK=\x1b[36m :\
-FILE=\x1b[38m :\
-HIDDEN=\x1b[90m :\
-EXEC=\x1b[32;4m :\
-ARCHIVE=\x1b[31m :\
-MEDIA=\x1b[33m :\
-DOCUMENT=\x1b[35;3m :"
-
+set -o vi
