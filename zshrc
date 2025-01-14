@@ -12,11 +12,6 @@ setopt HIST_IGNORE_ALL_DUPS
 # history won't show duplicates on search.
 setopt HIST_FIND_NO_DUPS
 
-# honestly idk what this is 
-# but it lets the fzf completion work so yeeeees
-autoload -Uz compinit
-compinit
-
 ## Plugins and themes
 source "$SCRIPT_DIR/plugins/fzf-tab/fzf-tab.plugin.zsh"
 source "$SCRIPT_DIR/themes/spaceship-prompt/spaceship.zsh-theme"
@@ -38,6 +33,25 @@ SPACESHIP_USER_SHOW=always
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 
+function fzf-preview() {
+  local file="$1"
+  if [[ -d "$file" ]]; then
+    lsr -D --group-directories-first "$file" | less -R
+  elif [[ -f "$file" ]]; then
+    less -R "$file"
+  else
+    echo "Invalid file or directory: $file" >&2
+  fi
+}
+zstyle ':fzf-tab:complete:diff:*' fzf-preview 'less -R $(git diff --unified=$REPLY)'
+zstyle ':fzf-tab:*' fzf-bindings 'tab:replace-query'
+zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' popup-min-size 50 8
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsr -D -! $realpath' 
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'lsr -D -! $realpath' 
+zstyle ':fzf-tab:complete:diff:*' popup-min-size 80 12
+
 ## Aliases
 source "$SCRIPT_DIR/aliases.zsh"
 
@@ -48,3 +62,6 @@ eval "$(zoxide init zsh)"
 PATH=$PATH:/home/jonathan/.cargo/bin
 
 set -o vi
+
+autoload -Uz compinit
+compinit
