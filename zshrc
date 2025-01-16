@@ -61,7 +61,5 @@ eval "$(zoxide init zsh)"
 ## SET PATH
 PATH=$PATH:/home/jonathan/.cargo/bin
 
-set -o vi
-
 autoload -Uz compinit
 compinit
