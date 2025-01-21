@@ -44,8 +44,6 @@ function fzf-preview() {
   fi
 }
 zstyle ':fzf-tab:complete:diff:*' fzf-preview 'less -R $(git diff --unified=$REPLY)'
-zstyle ':fzf-tab:*' fzf-bindings 'tab:replace-query'
-zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':fzf-tab:*' popup-min-size 50 8
 zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsr -D -! $realpath' 
