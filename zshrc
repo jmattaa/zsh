@@ -1,6 +1,9 @@
 SCRIPT_DIR=$(dirname "$(realpath $0)")
 echo "$SCRIPT_DIR is being used"
 
+## Manpage shi
+export MANPAGER="nvim +Man!"
+
 ## History file
 export HISTFILE=$HOME/.zsh_history
 # how many commands zsh will load to memory.
