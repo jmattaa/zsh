@@ -7,6 +7,3 @@
 [submodule "zsh-autosuggestions"]
     path = plugins/zsh-autosuggestions
     url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "spaceship-prompt"]
-    path = themes/spaceship-prompt
-    url = https://github.com/spaceship-prompt/spaceship-prompt

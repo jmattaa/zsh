@@ -17,24 +17,11 @@ setopt HIST_FIND_NO_DUPS
 
 ## Plugins and themes
 source "$SCRIPT_DIR/plugins/fzf-tab/fzf-tab.plugin.zsh"
-source "$SCRIPT_DIR/themes/spaceship-prompt/spaceship.zsh-theme"
 source "$SCRIPT_DIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 source "$SCRIPT_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-## Spaceship config
-SPACESHIP_PROMPT_ORDER=(
-    time     #
-    user     # before prompt char
-    host     #
-    char
-    dir
-    git
-    node
-)
-
-SPACESHIP_USER_SHOW=always
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_SUFFIX=" "
+export STARSHIP_CONFIG="$SCRIPT_DIR/starship.toml"
+eval "$(starship init zsh)"
 
 function fzf-preview() {
   local file="$1"
