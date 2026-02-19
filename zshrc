@@ -20,9 +20,6 @@ source "$SCRIPT_DIR/plugins/fzf-tab/fzf-tab.plugin.zsh"
 source "$SCRIPT_DIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 source "$SCRIPT_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-export STARSHIP_CONFIG="$SCRIPT_DIR/starship.toml"
-eval "$(starship init zsh)"
-
 function fzf-preview() {
   local file="$1"
   if [[ -d "$file" ]]; then
@@ -42,6 +39,9 @@ zstyle ':fzf-tab:complete:diff:*' popup-min-size 80 12
 
 ## Aliases
 source "$SCRIPT_DIR/aliases.zsh"
+
+## PROMPT
+source "$SCRIPT_DIR/prompt.zsh"
 
 ## zoxide eval
 eval "$(zoxide init zsh)"
