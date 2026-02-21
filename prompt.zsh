@@ -1,4 +1,4 @@
-function git_status_symbols() {
+function git_symbols() {
     local gstatus=$(git status --porcelain=2 --branch 2> /dev/null)
     local symbols=""
 
@@ -13,9 +13,11 @@ function git_status_symbols() {
     echo "$gstatus" | grep -q '^1 [MADRC].' && symbols+="!"
     echo "$gstatus" | grep -q '^1 .[MADRC]' && symbols+="+"
 
-    [[ -n $symbols ]] && echo "%F{cyan}[$symbols]%f "
+    local branch=$(git branch --show-current 2> /dev/null)
+    [[ -n $branch ]] && echo -n "%F{magenta} $branch%f "
+    [[ -n $symbols ]] && echo -n "%F{cyan}[$symbols]%f "
 }
 
 setopt prompt_subst
-export PROMPT='$(git_status_symbols)%(?.%F{green}.%F{red})$%f '
+export PROMPT='%F{blue}%c $(git_symbols)%(?.%F{green}.%F{red})$%f '
 
